@@ -1,0 +1,69 @@
+.rangeslider,
+.rangeslider__fill {
+  display: block;
+}
+
+.rangeslider {
+  background: #e4e9ed;
+  position: relative;
+  border-radius:6px;
+}
+
+.rangeslider--horizontal {
+  height: 8px;
+  width: 100%;
+  border-radius:6px;
+}
+
+.rangeslider--vertical {
+  width: 20px;
+  min-height: 150px;
+  max-height: 100%;
+}
+
+.rangeslider--disabled {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+}
+
+.rangeslider__fill {
+  background: #6eb219;
+  position: absolute;
+  border-radius:6px;
+}
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
+}
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+  width: 100%;
+}
+
+.rangeslider__handle {
+  background: #fbbe1b;
+  cursor: pointer;
+  display: inline-block;
+  width: 16px;
+  height: 27px;
+  position: absolute;
+  background: url('../img/calc-handle.png');
+}
+
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle {
+ 
+}
+.rangeslider--horizontal .rangeslider__handle {
+  top: -7px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .rangeslider__handle {
+  left: -7px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+
+}

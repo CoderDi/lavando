@@ -1,0 +1,78 @@
+.wie-get
+  &__flex
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    margin-top: 80px
+    padding-bottom: 80px
+    border-bottom: 1px solid rgba(221, 225, 235, 1)
+  &__item
+    width: calc(33.333% - 26px)
+    display: flex
+    align-items: flex-start
+    &_icon
+      display: block
+      flex-shrink: 0
+      position: relative
+      width: 60px
+      height: 60px
+      border: 1px solid #E1E0F0
+      border-radius: 100%
+      margin-right: 30px
+      background-repeat: no-repeat
+      background-position: center
+      &1
+        background-image: url(../images/icons.svg#passport)
+        background-size: 20px 26px
+      &2
+        background-image: url(../images/icons.svg#credit-card)
+        background-size: 26px 26px
+      &3
+        background-image: url(../images/icons.svg#timer)
+        background-size: 24px 26px
+    &_text
+      display: block
+      padding-top: 8px
+      font-weight: normal
+      font-size: 18px
+      line-height: 30px
+      color: #3B3C44
+    &_num
+      position: absolute
+      top: -10px
+      left: -10px
+      width: 30px
+      height: 30px
+      background: #FFFFFF
+      border-radius: 100%
+      text-align: center
+      font-weight: bold
+      font-size: 12px
+      line-height: 30px
+      color: #272830
+  &__systems
+    padding: 80px 0 70px
+    display: flex
+    justify-content: space-between
+    max-width: 970px
+    width: 100%
+    margin: 0 auto
+  &__system
+    width: calc(25% - 22.5px)
+    height: 85px
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 1px solid #DDE1EB
+    border-radius: 10px
+    img
+      max-width: 100%
+      display: block
+      max-height: 100%
+  &__ps
+    display: block
+    text-align: center
+    font-weight: normal
+    font-size: 18px
+    line-height: 1
+    color: #272830
