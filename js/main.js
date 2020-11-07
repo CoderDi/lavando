@@ -36,6 +36,8 @@ $(document).ready(function(){
   });
   $(".js-step-btn").on("click", function(){
     $(".js-steps-slider").slick('slickGoTo', $(this).data("step") - 1);
+    $(".js-step-btn").removeClass("active");
+    $(this).addClass("active");
   });
 
   $(".js-reviews-slider").slick({
