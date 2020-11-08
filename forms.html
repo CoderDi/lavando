@@ -27,7 +27,10 @@
           
           <div class="data__chance">
             <span class="data__chance_title">Вероятность одобрения займа <b class="purple js-chance-value">50%</b></span>
-            <div class="data__chance_line"></div>
+            <div class="data__chance_line">
+              <span class="data__chance_current"></span>
+              <span class="data__chance_maybe"></span>
+            </div>
           </div>
 
           <div class="data__steps">
@@ -51,46 +54,202 @@
         </div>
 
         <form action="" class="form" data-step="1">
-          <div class="form__header flex">
-            <strong class="form__header_title">Контактные данные</strong>
+          <div class="form__container">
+            <div class="form__header flex">
+              <strong class="form__header_title">Контактные данные</strong>
 
-            <label class="form__summ">
-              <span class="form__summ_text">Сумма займа</span>
-              <div class="form__summ_label">
-                <input type="text" class="form__summ_input" id="formSummInput" value="65 000" readonly>
-                <span>₽</span>
-              </div>
-            </label>
-          </div>
-
-          <div class="form__slider">
-            <div class="form__step" data-step="1">
-              <span class="form__step_title">Контактные данные</span>
-              <div class="form__flex">
-                <label class="label">
-                  <span class="label__title">Телефон</span>
-                  <input type="tel" class="input" placeholder="+7 (123)-456-78-91" required>
-                  <span class="label__error">Заполните данное поле</span>
-                </label>
-                <label class="label">
-                  <span class="label__title">Email</span>
-                  <input type="email" class="input" placeholder="ivan_ivanov@mail.ru" required>
-                  <span class="label__error">Заполните данное поле</span>
-                </label>
-              </div>
-              <label class="soglasie">
-                <input type="checkbox" name="soglasie" checked>
-                <span class="soglasie__custom"></span>
-                <span class="soglasie__text">Даю свое <b>согласие на обработку персональных данных</b> и <b>на получение рекламных материалов</b>, принимаю <b>условия публичной оферты</b>, <b>соглашение о применении рекуррентных платежей</b> и <b>тарифы сервиса</b>. Осознаю, что оплата услуг не гарантирует получение займа.</span>
+              <label class="form__summ flex">
+                <span class="form__summ_text">Сумма займа</span>
+                <div class="form__summ_label flex">
+                  <input type="text" class="form__summ_input" id="formSummInput" value="65 000">
+                  <span>₽</span>
+                </div>
               </label>
             </div>
 
-          </div>          
+            <div class="form__slider">
 
-          <div class="form__footer">
-            <span class="form__prev-btn js-form-prev">Назад</span>
-            <span class="btn form__next-btn js-form-next">Далее</span>
-          </div>
+              <!-- <div class="form__step" data-step="1">
+                <span class="form__step_title">Контактные данные</span>
+                <div class="form__flex">
+                  <label class="label xl50">
+                    <span class="label__title">Телефон</span>
+                    <input type="tel" class="input" placeholder="+7 (123)-456-78-91" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Email</span>
+                    <input type="email" class="input" placeholder="ivan_ivanov@mail.ru" required>
+                  </label>
+                </div>
+                <label class="soglasie">
+                  <input type="checkbox" name="soglasie" checked>
+                  <span class="soglasie__custom"></span>
+                  <span class="soglasie__text">Даю свое <b>согласие на обработку персональных данных</b> и <b>на получение рекламных материалов</b>, принимаю <b>условия публичной оферты</b>, <b>соглашение о применении рекуррентных платежей</b> и <b>тарифы сервиса</b>. Осознаю, что оплата услуг не гарантирует получение займа.</span>
+                </label>
+              </div> -->
+
+              <!-- <div class="form__step" data-step="2">
+                <span class="form__step_title">Личные данные</span>
+                <div class="form__flex">
+                  <label class="label xl50">
+                    <span class="label__title">Фамилия</span>
+                    <input type="text" class="input" placeholder="Иванов" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Имя</span>
+                    <input type="text" class="input" placeholder="Иванович" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Отчество</span>
+                    <input type="text" class="input" placeholder="Иван" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Дата рождения</span>
+                    <input type="date" class="input" placeholder="12/04/1985" required>
+                  </label>
+                  <div class="label xl100">
+                    <span class="label__title">Пол</span>
+                    <div class="input gender flex">
+                      <label class="gender__radio">
+                        <input type="radio" name="gender" value="Мужской" checked>
+                        <span class="gender__radio_custom">Мужской</span>
+                      </label>
+                      <label class="gender__radio">
+                        <input type="radio" name="gender" value="Женский">
+                        <span class="gender__radio_custom">Женский</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="form__step" data-step="3">
+                <span class="form__step_title">Паспортные данные</span>
+                <div class="form__flex">
+                  <label class="label xl33">
+                    <span class="label__title">Серия</span>
+                    <input type="text" class="input" placeholder="1000" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Номер паспорта</span>
+                    <input type="text" class="input" placeholder="200000" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Место рождения</span>
+                    <input type="text" class="input" placeholder="г. Москва" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Дата выдачи паспорта</span>
+                    <input type="date" class="input" placeholder="12/04/1985" required>
+                  </label>
+                  <label class="label xl50">
+                    <span class="label__title">Код подразделения</span>
+                    <input type="text" class="input" placeholder="100-200" required>
+                  </label>
+                </div>
+              </div> -->
+
+              <!-- <div class="form__step" data-step="4">
+                <span class="form__step_title">Адрес регистрации</span>
+                <div class="form__flex">
+                  <label class="label xl33">
+                    <span class="label__title">Адрес регистрации</span>
+                    <input type="text" class="input" placeholder="000000" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Регион</span>
+                    <input type="text" class="input" placeholder="Московская область" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Город</span>
+                    <input type="text" class="input" placeholder="г. Москва" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Улица</span>
+                    <input type="text" class="input" placeholder="ул. Мира" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Дом</span>
+                    <input type="text" class="input" placeholder="12" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Квартира</span>
+                    <input type="text" class="input" placeholder="15" required>
+                  </label>
+                </div>
+                <label class="label xl100 label__register">
+                  <input type="checkbox" checked>
+                  <span class="label__register_custom"></span>
+                  <span class="label__register_text">Совпадает с адресом регистрации</span>
+                </label>
+                <div class="form__flex">
+                  <label class="label xl33">
+                    <span class="label__title">Адрес регистрации</span>
+                    <input type="text" class="input" placeholder="000000" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Регион</span>
+                    <input type="text" class="input" placeholder="Московская область" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Город</span>
+                    <input type="text" class="input" placeholder="г. Москва" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Улица</span>
+                    <input type="text" class="input" placeholder="ул. Мира" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Дом</span>
+                    <input type="text" class="input" placeholder="12" required>
+                  </label>
+                  <label class="label xl33">
+                    <span class="label__title">Квартира</span>
+                    <input type="text" class="input" placeholder="15" required>
+                  </label>
+                </div>
+              </div> -->
+
+              <!-- <div class="form__step form__step--loading" data-step="5">
+                <strong class="loading__title">Проверяем ваши данные</strong>
+                <p class="loading__text">Наши алгоритмы обрабатывают введенную Вами информацию. <br> Это займет менее 10 секунд. Пожалуйста, не закрывайте страницу.</p>
+                <div class="loading__progress">
+                  <span class="loading__progress_text">205/280 данных проверено</span>
+                  <span class="loading__progress_line"></span>
+                </div>
+              </div> -->
+
+              <div class="form__step form__step--loading" data-step="6">
+                <span class="form__step_title">Осталось добавить карту</span>
+                <div class="card">
+                  <div class="card__flex">
+                    <div class="card__front">
+                      <div class="card__front_container">
+                        
+                      </div>
+                    </div>
+
+                    <div class="card__back">
+
+                    </div>
+                  </div>
+
+                  <span class="card__ps">Проверка подлинности карты. Укажите корректные данные карты. Мы спишем и вернем один рубль для ее проверки. Это не обязывает брать займ.
+                    Комиссия сервиса 389 руб. каждые 5 дней.</span>
+                </div>
+
+                <div class="card__alert">
+                  Проверьте правильность введенных данных карты или воспользуйтесь другой картой
+                </div>
+              </div>
+
+            </div>          
+
+            <div class="form__footer flex">
+              <span class="form__prev-btn js-form-prev">Назад</span>
+              <span class="btn form__next-btn js-form-next">Далее</span>
+            </div>
+          </div>          
         </form>
       </div>
     </div>

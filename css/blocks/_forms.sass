@@ -1,0 +1,469 @@
+.data
+  padding: 55px 0 100px
+  &__wrapper
+    width: 100%
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+  &__left
+    width: 360px
+    margin-right: 60px
+    flex-shrink: 0
+  &__title
+    margin: 30px 0 40px
+    font-weight: 500
+    font-size: 40px
+    line-height: 60px
+    letter-spacing: 0.05em
+    color: #272830
+  &__time
+    display: inline-block
+    position: relative
+    z-index: 2
+    &::before
+      position: absolute
+      z-index: -1
+      left: -2px
+      bottom: 16px
+      content: ''
+      width: 100%
+      height: 6px
+      background: #FFDB5C
+  &__chance
+    margin: 40px 0
+    &_title
+      display: block
+      margin-bottom: 25px
+      font-weight: normal
+      font-size: 20px
+      line-height: 30px
+      color: #888C9F
+    &_line
+      position: relative
+      width: 100%
+      height: 12px
+      background: #DFE1F3
+      border-radius: 130px
+    &_current,
+    &_maybe
+      position: absolute
+      top: 0
+      left: 0
+      width: 50%
+      height: 100%
+      border-radius: 130px
+      background: #758BFD
+    &_current
+      z-index: 2
+    &_maybe 
+      width: 60%
+      background: rgba(117, 139, 253, 0.4)
+  &__steps
+    margin: 40px 0
+  &__step
+    position: relative
+    font-weight: normal
+    font-size: 18px
+    line-height: 20px
+    color: #888C9F
+    padding: 12px 0 12px 67px
+    &.active
+      font-weight: bold
+      padding: 16px 0 16px 67px
+      .data__step_num
+        left: 0
+        top: 5px
+        width: 34px
+        height: 34px
+        border: 3px solid #FFDB5C
+    &:first-child .data__step_num::before
+        display: none
+    &_num
+      position: absolute
+      top: 10px
+      left: 7px
+      width: 20px
+      height: 20px
+      border: 2px solid #D3D7E1
+      box-sizing: border-box
+      border-radius: 100%
+      background: url(../images/bg-pattern.png) no-repeat center, #f1f5ff
+      font-size: 0
+      color: transparent
+      &::before
+        position: absolute
+        z-index: -1
+        left: 48%
+        top: -28px
+        content: ''
+        width: 1px
+        background: #D3D7E1
+        height: 30px
+
+.form
+  position: relative
+  flex-grow: 2
+  &::after
+    position: absolute
+    content: ''
+    left: 10px
+    right: 10px
+    bottom: -10px
+    height: 30px
+    background: #E7EBF5
+    border-radius: 10px
+  &::before
+    position: absolute
+    content: ''
+    left: 30px
+    right: 30px
+    bottom: -70px
+    height: 140px
+    background: #272830
+    opacity: 0.1
+    filter: blur(110px)
+    border-radius: 10px
+  &__container
+    position: relative
+    z-index: 2
+    min-height: 500px
+    background: #FFFFFF
+    border-radius: 10px
+    padding: 40px 40px 35px
+    display: flex
+    flex-direction: column
+    &::before
+      position: absolute
+      content: ''
+      top: 35px
+      left: -18px
+      width: 36px
+      height: 65px
+      background: url(../images/icons.svg#dekor) no-repeat center
+      background-size: contain
+  &__header
+    margin-bottom: 30px
+    width: 100%
+    &_title
+      font-weight: 500
+      font-size: 22px
+      line-height: 1
+      color: #272830
+  &__slider
+    flex-grow: 2
+    width: 100%
+  &__footer
+    margin-top: 30px
+    width: 100%
+    position: relative
+    justify-content: center
+  &__next-btn
+    width: 160px
+    height: 50px
+    padding-top: 3px
+  &__prev-btn
+    position: absolute
+    left: 0
+    height: 50px
+    padding-left: 25px
+    font-weight: bold
+    font-size: 18px
+    line-height: 50px
+    letter-spacing: 0.1em
+    color: #888C9F
+    cursor: pointer
+    &:hover
+      color: #272830
+      &::before
+        background-image: url(../images/icons.svg#prev-arrow-hover)
+    &::before
+      position: absolute
+      left: 0
+      top: 16px
+      content: ''
+      width: 8px
+      height: 14px
+      background: url(../images/icons.svg#prev-arrow) no-repeat center
+      background-size: contain
+  &[data-step='1'] .form__prev-btn
+    display: none
+  &__summ
+    &_text
+      position: relative
+      display: block
+      padding-top: 3px
+      margin-right: 20px
+      font-weight: 500
+      font-size: 18px
+      line-height: 1
+      color: #888C9F
+      &::after
+        position: absolute
+        top: 2px
+        right: -22px
+        content: ''
+        width: 14px
+        height: 14px
+        background: url(../images/icons.svg#edit) no-repeat center
+        background-size: contain
+    &_label
+      height: 40px
+      border: 1px solid transparent
+      box-sizing: border-box
+      border-radius: 3px
+      padding: 3px 15px 0
+      &.active
+        border-color: #DFE1F3
+      span
+        display: block
+        font-weight: bold
+        font-size: 22px
+        line-height: 1
+        letter-spacing: 0.06em
+        color: #272830
+        margin-left: 5px
+    &_input
+      display: block
+      max-width: 105px
+      text-align: right
+      font-family: Muller, sans-serif
+      font-weight: bold
+      font-size: 22px
+      line-height: 1
+      letter-spacing: 0.06em
+      color: #272830
+      border: none
+      background: none
+      box-shadow: none
+      height: 40px
+  &__step
+    &_title
+      display: none
+  &__flex
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+
+.soglasie
+  margin: 30px 0
+  display: flex
+  align-items: flex-start
+  cursor: pointer
+  input
+    display: none
+    &:checked ~ .soglasie__custom
+      background: url(../images/icons.svg#soglasie) no-repeat center, #758BFD
+      background-size: 18px 13px
+      border: none
+  &__custom
+    display: block
+    flex-shrink: 0
+    width: 34px
+    height: 34px
+    border-radius: 4px
+    margin-right: 20px
+    border: 2px solid #888C9F
+  &.alert &__custom
+    border-color: #F23828
+  &__text
+    font-weight: normal
+    font-size: 12px
+    line-height: 1.5
+    color: #888C9F
+    b, a
+      font-weight: 500
+
+.label
+  display: block
+  margin: 10px 0
+  &__title
+    display: block
+    margin-bottom: 10px
+    font-weight: normal
+    font-size: 17px
+    line-height: 1
+    letter-spacing: 0.02em
+    color: #272830
+  &__register
+    margin: 10px 0 20px
+    display: flex
+    align-items: center
+    cursor: pointer
+    input
+      display: none
+      &:checked ~ .label__register_custom
+        border: 6px solid #758BFD
+        background: #ffffff
+    &_custom
+      flex-shrink: 0
+      display: block
+      width: 20px
+      height: 20px
+      margin-right: 10px
+      border: 2px solid #888C9F
+      border-radius: 100%
+    &_text
+      padding-top: 3px
+      display: block
+      font-weight: normal
+      font-size: 15px
+      line-height: 1
+      letter-spacing: 0.08em
+      color: #888C9F
+
+.input
+  width: 100%
+  display: block
+  height: 54px
+  box-sizing: border-box
+  border: 1px solid #DFE1F3
+  border-radius: 3px
+  padding: 0 20px
+  font-family: Muller, sans-serif
+  font-style: normal
+  font-weight: normal
+  font-size: 15px
+  line-height: 1
+  letter-spacing: 0.08em
+  color: #888C9F
+  &::placeholder
+    opacity: 1
+    color: #888C9F
+
+.gender
+  padding: 0
+  display: flex
+  overflow: hidden
+  input
+    display: none
+    &:checked ~ .gender__radio_custom
+      background: #DFE1F3
+  &__radio
+    display: block
+    position: relative
+    cursor: pointer
+    width: 50%
+    height: 100%
+    &_custom
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+
+.loading
+  &__title
+    display: block
+    margin: 0 0 35px
+    font-weight: 500
+    font-size: 28px
+    line-height: 1
+    color: #272830
+  &__text
+    margin: 35px 0
+    font-weight: normal
+    font-size: 20px
+    line-height: 32px
+    color: #272830
+  &__progress
+    position: relative
+    margin-top: 50px
+    width: 100%
+    height: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    background: #F1F5FF
+    border-radius: 50px
+    border: 8px solid #F1F5FF
+    &_text
+      position: relative
+      z-index: 2
+      font-weight: 500
+      font-size: 14px
+      line-height: 1
+      color: #888C9F
+    &_line
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      width: 30%
+      background: url(../images/loading.png), #FFDB5C
+      border-radius: 23px
+
+.card
+  &__ps
+    display: block
+    font-weight: normal
+    font-size: 12px
+    line-height: 20px
+    color: #888C9F
+  &__alert
+    position: fixed
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    width: 440px
+    background: url(../images/icons.svg#alert) no-repeat 20px 20px, #FFC4B4
+    background-size: 25px 25px
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1)
+    border-radius: 0px 0px 5px 5px
+    border-top: 5px solid #F23828
+    padding: 15px 25px 15px 65px
+    font-weight: normal
+    font-size: 16px
+    line-height: 22px
+    color: #234E52
+  &__flex
+    position: relative
+    display: flex
+  &__front
+    position: relative
+    z-index: 2
+    margin-bottom: 75px
+    &_container
+      position: relative
+      z-index: 2
+      background: #F1F5FF
+      border-radius: 20px
+      padding: 35px 45px
+      width: 420px
+      height: 235px
+    &::before
+      position: absolute
+      top: 0
+      left: 30px
+      content: ''
+      width: 100%
+      height: calc(100% + 45px)
+      bottom: -30px
+      right: -30px
+      background: #0D1025
+      opacity: 0.06
+      filter: blur(114px)
+      border-radius: 10px
+  &__back
+    position: absolute
+    top: 42px
+    right: 0
+    width: 420px
+    height: 235px
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    padding-right: 60px
+    background: #F1F5FF
+    border-radius: 20px
+    &::before
+      position: absolute
+      top: 21px
+      left: 0
+      width: 100%
+      content: ''
+      background: #FFFFFF
+      height: 46px
+
