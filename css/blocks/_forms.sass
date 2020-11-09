@@ -60,6 +60,8 @@
       background: rgba(117, 139, 253, 0.4)
   &__steps
     margin: 40px 0
+    &_mobile-line
+      display: none
   &__step
     position: relative
     font-weight: normal
@@ -158,6 +160,8 @@
     width: 100%
     position: relative
     justify-content: center
+    &_divider
+      display: none
   &__next-btn
     width: 160px
     height: 50px
@@ -275,6 +279,7 @@
       font-weight: 500
 
 .label
+  position: relative
   display: block
   margin: 10px 0
   &__title
@@ -409,7 +414,8 @@
     top: 0
     left: 50%
     transform: translateX(-50%)
-    width: 440px
+    width: 100%
+    max-width: 440px
     background: url(../images/icons.svg#alert) no-repeat 20px 20px, #FFC4B4
     background-size: 25px 25px
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1)
