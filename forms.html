@@ -69,7 +69,7 @@
 
             <div class="form__slider">
 
-              <!-- <div class="form__step" data-step="1">
+              <div class="form__step" data-step="1">
                 <span class="form__step_title">Контактные данные</span>
                 <div class="form__flex">
                   <label class="label xl50">
@@ -86,9 +86,9 @@
                   <span class="soglasie__custom"></span>
                   <span class="soglasie__text">Даю свое <b>согласие на обработку персональных данных</b> и <b>на получение рекламных материалов</b>, принимаю <b>условия публичной оферты</b>, <b>соглашение о применении рекуррентных платежей</b> и <b>тарифы сервиса</b>. Осознаю, что оплата услуг не гарантирует получение займа.</span>
                 </label>
-              </div> -->
+              </div>
 
-              <!-- <div class="form__step" data-step="2">
+              <div class="form__step" data-step="2">
                 <span class="form__step_title">Личные данные</span>
                 <div class="form__flex">
                   <label class="label xl50">
@@ -121,9 +121,9 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- <div class="form__step" data-step="3">
+              <div class="form__step" data-step="3">
                 <span class="form__step_title">Паспортные данные</span>
                 <div class="form__flex">
                   <label class="label xl33">
@@ -147,9 +147,9 @@
                     <input type="text" class="input" placeholder="100-200" required>
                   </label>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- <div class="form__step" data-step="4">
+              <div class="form__step" data-step="4">
                 <span class="form__step_title">Адрес регистрации</span>
                 <div class="form__flex">
                   <label class="label xl33">
@@ -208,16 +208,16 @@
                     <input type="text" class="input" placeholder="15" required>
                   </label>
                 </div>
-              </div> -->
+              </div>
 
-              <!-- <div class="form__step form__step--loading" data-step="5">
+              <div class="form__step form__step--loading" data-step="5">
                 <strong class="loading__title">Проверяем ваши данные</strong>
                 <p class="loading__text">Наши алгоритмы обрабатывают введенную Вами информацию. <br> Это займет менее 10 секунд. Пожалуйста, не закрывайте страницу.</p>
                 <div class="loading__progress">
                   <span class="loading__progress_text">205/280 данных проверено</span>
                   <span class="loading__progress_line"></span>
                 </div>
-              </div> -->
+              </div>
 
               <div class="form__step form__step--loading" data-step="6">
                 <span class="form__step_title">Осталось добавить карту</span>
@@ -225,12 +225,31 @@
                   <div class="card__flex">
                     <div class="card__front">
                       <div class="card__front_container">
-                        
+                        <label class="card__label">
+                          <span class="card__label_title">Номер карты <span class="red">*</span></span>
+                          <input type="text" name="cardNumber" class="input card__input" placeholder="0000 0000 0000 0000">
+                        </label>
+                        <div class="card__front_flex flex">
+                          <div class="card__front_pays flex">
+                            <img src="images/visa.png" alt="visa" class="card__front_pay">
+                            <img src="images/mir.png" alt="mir" class="card__front_pay">
+                            <img src="images/mastercard.png" alt="mastercard" class="card__front_pay">
+                            <img src="images/uniteller.png" alt="uniteller" class="card__front_pay">
+                          </div>
+                          <label for="cardMonth" class="card__label card__label--flex">
+                            <span class="card__label_title">Срок действия <span class="red">*</span></span>
+                            <input type="text" name="cardMonth" class="input card__input card__input--date" placeholder="мм">
+                            <input type="text" name="cardYear" class="input card__input card__input--date" placeholder="гг">
+                          </label>
+                        </div>
                       </div>
                     </div>
 
                     <div class="card__back">
-
+                      <label class="card__label card__label--cvv">
+                        <span class="card__label_title">CVV  <span class="red">*</span></span>
+                        <input type="text" name="cardCvv" class="input card__input" placeholder="***">
+                      </label>
                     </div>
                   </div>
 
@@ -255,10 +274,145 @@
     </div>
   </section>
 
+  <section class="results">
+    <div class="wrapper">
+      <div class="results__text">
+        <h2 class="results__title"><span class="jsUserName">Виталий</span>, мы подобрали Вам займы <br>
+          <span class="results__title--line">с самыми выгодными условиями</span>
+        </h2>
+        <span class="results__subtitle">Одновременно подайте заявку, как минимум, в 3 компании для гарантированного получения займа</span>
+      </div>
 
+      <div class="results__list">
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
 
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
 
-  
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
+
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
+
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
+
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
+
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
+
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
+
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
+
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
+
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="result__container">
+            <div class="result__title">
+              <img src="images/maxcredit.png" alt="maxcredit">
+            </div>
+
+            <ul class="result__tth">
+              <li class="result__tth_item">
+                Срок:
+                <strong>до 30 дней</strong>
+              </li>
+              <li class="result__tth_item">
+                Сумма:
+                <strong>до 30 000 ₽</strong>
+              </li>
+            </ul>
+
+            <a href="#" class="btn result__btn">Получить деньги</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <script src="libs/jquery/jquery-3.3.1.min.js"></script>
   <script src="libs/slick/slick.min.js"></script>

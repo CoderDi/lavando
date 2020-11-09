@@ -1,7 +1,7 @@
 .reviews
   &__title
     text-align: center
-    margin: 0 0 70px
+    margin: 0
     font-weight: normal
     font-size: 40px
     line-height: 60px
@@ -10,11 +10,12 @@
     strong
       display: block
   &__slider
-    padding: 0 80px
-    margin: 70px auto 80px
+    margin: 0 auto 
+    .slick-list
+      padding: 0 80px
     .slick-arrow
       position: absolute
-      top: calc(50% - 30px)
+      top: calc(50% - 40px)
       left: 0
       z-index: 2
       width: 60px
@@ -26,34 +27,71 @@
       color: transparent
       background: url(../images/icons.svg#arrow) no-repeat center
       background-size: 20px 18px
+      transition: opacity .3s ease-in-out
+      &.slick-disabled
+        opacity: 0
       &:hover
         background-color: #FFDB5C
         box-shadow: 0px 10px 40px rgba(255, 219, 92, 0.2)
       &:active
         background-color: #EBC748
         border-color: #EBC748
-      &.slick-next
-        transform: rotate(180deg)
-        left: auto
-        right: 0
+    .slick-next
+      transform: rotate(180deg)
+      left: auto
+      right: 0
   &__btn
     margin: 0 auto       
 .review
-  padding: 0 20px
+  margin: 0 20px
+  padding: 70px 0 80px
+  opacity: 0
+  transition: .3s ease-in-out
+  &.slick-active
+    opacity: 1
   &__container
-    background: #FFFFFF
-    border-radius: 10px
-    padding: 30px
+    position: relative
+    z-index: 2
+    &::after
+      position: absolute
+      content: ''
+      left: 10px
+      right: 10px
+      bottom: -10px
+      height: 30px
+      background: #E7EBF5
+      border-radius: 10px
+    &::before
+      position: absolute
+      content: ''
+      left: 20px
+      right: 20px
+      bottom: -30px
+      height: 140px
+      height: calc(100% - 30px)
+      background: #272830
+      opacity: 0.1
+      filter: blur(30px)
+      border-radius: 10px
   &__text
     margin: 0
     font-weight: normal
     font-size: 16px
     line-height: 26px
     color: #0B132A
+    padding: 0 30px 30px
+    background: #ffffff
+    position: relative
+    z-index: 2
+    border-radius: 0 0 10px 10px
   &__top
+    position: relative
+    z-index: 2
     display: flex
     align-items: center
-    margin-bottom: 20px
+    padding: 30px 30px 20px
+    background: #ffffff
+    border-radius: 10px 10px 0 0
   &__img
     width: 50px
     height: 50px

@@ -32,7 +32,12 @@ $(document).ready(function(){
   $(".js-steps-slider").slick({
     arrows: false,
     infinite: false,
-    autoplay: false
+    autoplay: false,
+    adaptiveHeight: true,
+    draggable: false,
+    swipe: false,
+    touchMove: false,
+    accessibility: false
   });
   $(".js-step-btn").on("click", function(){
     $(".js-steps-slider").slick('slickGoTo', $(this).data("step") - 1);
@@ -42,11 +47,20 @@ $(document).ready(function(){
 
   $(".js-reviews-slider").slick({
     arrows: true,
-    infinite: true,
-    autoplay: true,
+    infinite: false,
+    // autoplay: true,
     autoplaySpeed: 6000,
     slidesToShow: 2,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 980,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   });
   
   $(function() {
