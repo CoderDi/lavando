@@ -447,7 +447,12 @@
       width: 30%
       background: url(../images/loading.png), #FFDB5C
       border-radius: 23px
-
+      animation: loading 1s linear infinite
+@keyframes loading
+  0%
+    background-position: 0 0
+  100%
+    background-position: 22px 0
 .card
   &__ps
     display: block

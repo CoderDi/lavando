@@ -2011,6 +2011,36 @@ body {
   background: url(../images/loading.png), #FFDB5C;
   -webkit-border-radius: 23px;
           border-radius: 23px;
+  -webkit-animation: loading 1s linear infinite;
+     -moz-animation: loading 1s linear infinite;
+          animation: loading 1s linear infinite;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 22px 0;
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 22px 0;
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 22px 0;
+  }
 }
 
 .card__ps {
