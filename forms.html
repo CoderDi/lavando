@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="libs/slick/slick.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -19,35 +20,35 @@
     </div>
   </header>
 
-  <section class="data">
+  <section class="data" id="data">
     <div class="wrapper">
       <div class="data__wrapper">
         <div class="data__left">
           <h1 class="data__title">Получите деньги уже в <span class="data__time">20:18</span></h1>
           
           <div class="data__chance">
-            <span class="data__chance_title">Вероятность одобрения займа <b class="purple js-chance-value">50%</b></span>
-            <div class="data__chance_line">
-              <span class="data__chance_current"></span>
-              <span class="data__chance_maybe"></span>
+            <span class="data__chance_title">Вероятность одобрения займа <b class="purple js-chanceValue">50%</b></span>
+            <div class="data__chance_line js-dataChance">
+              <span class="data__chance_current js-dataChanceCurrent"></span>
+              <span class="data__chance_maybe js-dataChanceMaybe"></span>
             </div>
           </div>
 
           <div class="data__steps">
-            <span class="data__steps_mobile-line"></span>
-            <div class="data__step active">
+            <span class="data__steps_mobile-line js-dataStepLine"><i></i></span>
+            <div class="data__step active js-dataStep">
               <span class="data__step_num">1</span>
               <span class="data__step_text">Контактные данные</span>
             </div>
-            <div class="data__step">
+            <div class="data__step js-dataStep">
               <span class="data__step_num">2</span>
               <span class="data__step_text">Личные данные</span>
             </div>
-            <div class="data__step">
+            <div class="data__step js-dataStep">
               <span class="data__step_num">3</span>
               <span class="data__step_text">Паспортные данные</span>
             </div>
-            <div class="data__step">
+            <div class="data__step js-dataStep">
               <span class="data__step_num">4</span>
               <span class="data__step_text">Адрес регистрации</span>
             </div>
@@ -57,7 +58,7 @@
         <form action="" class="form" data-step="1">
           <div class="form__container">
             <div class="form__header flex">
-              <strong class="form__header_title">Контактные данные</strong>
+              <strong class="form__header_title js-formHeaderTitle">Контактные данные</strong>
 
               <label class="form__summ flex">
                 <span class="form__summ_text">Сумма займа</span>
@@ -68,10 +69,10 @@
               </label>
             </div>
 
-            <div class="form__slider">
+            <div class="form__slider js-form-slider">
 
               <div class="form__step" data-step="1">
-                <span class="form__step_title">Контактные данные</span>
+                <span class="form__step_title js-stepTitle">Контактные данные</span>
                 <div class="form__flex">
                   <label class="label xl50 xs100">
                     <span class="label__title">Телефон</span>
@@ -83,14 +84,14 @@
                   </label>
                 </div>
                 <label class="soglasie">
-                  <input type="checkbox" name="soglasie" checked>
+                  <input type="checkbox" name="soglasie" checked required>
                   <span class="soglasie__custom"></span>
                   <span class="soglasie__text">Даю свое <b>согласие на обработку персональных данных</b> и <b>на получение рекламных материалов</b>, принимаю <b>условия публичной оферты</b>, <b>соглашение о применении рекуррентных платежей</b> и <b>тарифы сервиса</b>. Осознаю, что оплата услуг не гарантирует получение займа.</span>
                 </label>
               </div>
 
               <div class="form__step" data-step="2">
-                <span class="form__step_title">Личные данные</span>
+                <span class="form__step_title js-stepTitle">Личные данные</span>
                 <div class="form__flex">
                   <label class="label xl50 xs100">
                     <span class="label__title">Фамилия</span>
@@ -125,88 +126,88 @@
               </div>
 
               <div class="form__step" data-step="3">
-                <span class="form__step_title">Паспортные данные</span>
+                <span class="form__step_title js-stepTitle">Паспортные данные</span>
                 <div class="form__flex">
                   <label class="label xl33 sm50">
                     <span class="label__title">Серия</span>
-                    <input type="text" class="input" placeholder="1000" required>
+                    <input type="text" name="passportSerie" class="input" placeholder="1000" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Номер паспорта</span>
-                    <input type="text" class="input" placeholder="200000" required>
+                    <input type="text" name="passportNumber" class="input" placeholder="200000" required>
                   </label>
                   <label class="label xl33 sm100">
                     <span class="label__title">Место рождения</span>
-                    <input type="text" class="input" placeholder="г. Москва" required>
+                    <input type="text" name="passportPlace" class="input" placeholder="г. Москва" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Дата выдачи паспорта</span>
-                    <input type="date" class="input" placeholder="12/04/1985" required>
+                    <input type="date" name="passportDate" class="input" placeholder="12/04/1985" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Код подразделения</span>
-                    <input type="text" class="input" placeholder="100-200" required>
+                    <input type="text" name="passportCode" class="input" placeholder="100-200" required>
                   </label>
                 </div>
               </div>
 
               <div class="form__step" data-step="4">
-                <span class="form__step_title">Адрес регистрации</span>
-                <div class="form__flex">
+                <span class="form__step_title js-stepTitle">Адрес регистрации</span>
+                <div class="form__flex" id="registerAddress">
                   <label class="label xl33 sm50">
                     <span class="label__title">Адрес регистрации</span>
-                    <input type="text" class="input" placeholder="000000" required>
+                    <input type="text" name="index" class="input" placeholder="000000" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Регион</span>
-                    <input type="text" class="input" placeholder="Московская область" required>
+                    <input type="text" name="region" class="input" placeholder="Московская область" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Город</span>
-                    <input type="text" class="input" placeholder="г. Москва" required>
+                    <input type="text" name="city" class="input" placeholder="г. Москва" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Улица</span>
-                    <input type="text" class="input" placeholder="ул. Мира" required>
+                    <input type="text" name="street" class="input" placeholder="ул. Мира" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Дом</span>
-                    <input type="text" class="input" placeholder="12" required>
+                    <input type="text" name="home" class="input" placeholder="12" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Квартира</span>
-                    <input type="text" class="input" placeholder="15" required>
+                    <input type="text" name="apartment" class="input" placeholder="15" required>
                   </label>
                 </div>
                 <label class="label xl100 label__register">
-                  <input type="checkbox" checked>
+                  <input type="checkbox" name="addressMatch">
                   <span class="label__register_custom"></span>
                   <span class="label__register_text">Совпадает с адресом регистрации</span>
                 </label>
-                <div class="form__flex">
+                <div class="form__flex" id="liveAddress">
                   <label class="label xl33 sm50">
-                    <span class="label__title">Адрес регистрации</span>
-                    <input type="text" class="input" placeholder="000000" required>
+                    <span class="label__title">Адрес проживания</span>
+                    <input type="text" name="index" class="input" placeholder="000000" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Регион</span>
-                    <input type="text" class="input" placeholder="Московская область" required>
+                    <input type="text" name="region" class="input" placeholder="Московская область" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Город</span>
-                    <input type="text" class="input" placeholder="г. Москва" required>
+                    <input type="text" name="city" class="input" placeholder="г. Москва" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Улица</span>
-                    <input type="text" class="input" placeholder="ул. Мира" required>
+                    <input type="text" name="street" class="input" placeholder="ул. Мира" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Дом</span>
-                    <input type="text" class="input" placeholder="12" required>
+                    <input type="text" name="home" class="input" placeholder="12" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Квартира</span>
-                    <input type="text" class="input" placeholder="15" required>
+                    <input type="text" name="apartment" class="input" placeholder="15" required>
                   </label>
                 </div>
               </div>
@@ -220,15 +221,15 @@
                 </div>
               </div>
 
-              <div class="form__step" data-step="6">
-                <span class="form__step_title">Осталось добавить карту</span>
+              <div class="form__step form__step_card" data-step="6">
+                <span class="form__step_title js-stepTitle">Осталось добавить карту</span>
                 <div class="card">
                   <div class="card__flex">
                     <div class="card__front">
                       <div class="card__front_container">
                         <label class="card__label">
                           <span class="card__label_title">Номер карты <span class="red">*</span></span>
-                          <input type="text" name="cardNumber" class="input card__input" placeholder="0000 0000 0000 0000">
+                          <input type="text" name="cardNumber" class="input card__input" placeholder="0000 0000 0000 0000" required>
                         </label>
                         <div class="card__front_flex flex">
                           <div class="card__front_pays flex">
@@ -239,8 +240,8 @@
                           </div>
                           <label for="cardMonth" class="card__label card__label--flex">
                             <span class="card__label_title">Срок действия <span class="red">*</span></span>
-                            <input type="text" name="cardMonth" class="input card__input card__input--date" placeholder="мм">
-                            <input type="text" name="cardYear" class="input card__input card__input--date" placeholder="гг">
+                            <input type="text" name="cardMonth" class="input card__input card__input--date" placeholder="мм" required>
+                            <input type="text" name="cardYear" class="input card__input card__input--date" placeholder="гг" required>
                           </label>
                         </div>
                       </div>
@@ -249,7 +250,7 @@
                     <div class="card__back">
                       <label class="card__label card__label--cvv">
                         <span class="card__label_title">CVV  <span class="red">*</span></span>
-                        <input type="text" name="cardCvv" class="input card__input" placeholder="***">
+                        <input type="text" name="cardCvv" class="input card__input" placeholder="***" required>
                       </label>
                     </div>
                   </div>
@@ -258,14 +259,14 @@
                     Комиссия сервиса 389 руб. каждые 5 дней.</span>
                 </div>
 
-                <div class="card__alert">
-                  Проверьте правильность введенных данных карты или воспользуйтесь другой картой
-                </div>
               </div>
 
             </div>          
 
             <div class="form__footer flex">
+              <div class="card__alert">
+                Проверьте правильность введенных данных карты или воспользуйтесь другой картой
+              </div>
               <span class="form__prev-btn js-form-prev">Назад</span>
               <div class="form__footer_divider"></div>
               <span class="btn form__next-btn js-form-next">Далее</span>
@@ -275,146 +276,6 @@
       </div>
     </div>
   </section>
-
-  <section class="results">
-    <div class="wrapper">
-      <div class="results__text">
-        <h2 class="results__title"><span class="jsUserName">Виталий</span>, мы подобрали Вам займы <br>
-          <span class="results__title--line">с самыми выгодными условиями</span>
-        </h2>
-        <span class="results__subtitle">Одновременно подайте заявку, как минимум, в 3 компании для гарантированного получения займа</span>
-      </div>
-
-      <div class="results__list">
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-
-        <div class="result">
-          <div class="result__container">
-            <div class="result__title">
-              <img src="images/maxcredit.png" alt="maxcredit">
-            </div>
-
-            <ul class="result__tth">
-              <li class="result__tth_item">
-                Срок:
-                <strong>до 30 дней</strong>
-              </li>
-              <li class="result__tth_item">
-                Сумма:
-                <strong>до 30 000 ₽</strong>
-              </li>
-            </ul>
-
-            <a href="#" class="btn result__btn">Получить деньги</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <script src="libs/jquery/jquery-3.3.1.min.js"></script>
   <script src="libs/slick/slick.min.js"></script>

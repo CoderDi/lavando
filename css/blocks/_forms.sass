@@ -49,19 +49,37 @@
       position: absolute
       top: 0
       left: 0
-      width: 50%
+      width: 0%
       height: 100%
       border-radius: 130px
       background: #758BFD
+      transition: .3s ease-in-out
     &_current
       z-index: 2
-    &_maybe 
-      width: 60%
+    &_maybe
       background: rgba(117, 139, 253, 0.4)
   &__steps
     margin: 40px 0
+    position: relative
     &_mobile-line
-      display: none
+      position: absolute
+      z-index: -1
+      left: 17px
+      top: 14px
+      content: ''
+      width: 1px
+      height: 145px
+      background: #D3D7E1
+      i
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        max-width: 100%
+        height: 0
+        max-height: 100%
+        background: #FFDB5C
+        transition: .2s linear
   &__step
     position: relative
     font-weight: normal
@@ -69,6 +87,7 @@
     line-height: 20px
     color: #888C9F
     padding: 12px 0 12px 67px
+    transition: .2s linear
     &.active
       font-weight: bold
       padding: 16px 0 16px 67px
@@ -78,8 +97,10 @@
         width: 34px
         height: 34px
         border: 3px solid #FFDB5C
-    &:first-child .data__step_num::before
-        display: none
+    &.pointed
+      .data__step_num
+        border-color: #FFDB5C
+        color: #FFDB5C
     &_num
       position: absolute
       top: 10px
@@ -92,19 +113,12 @@
       background: url(../images/bg-pattern.png) no-repeat center, #f1f5ff
       font-size: 0
       color: transparent
-      &::before
-        position: absolute
-        z-index: -1
-        left: 48%
-        top: -28px
-        content: ''
-        width: 1px
-        background: #D3D7E1
-        height: 30px
+      transition: .2s linear
+      
 
 .form
   position: relative
-  flex-grow: 2
+  width: calc(100% - 420px)
   &::after
     position: absolute
     content: ''
@@ -134,6 +148,7 @@
     border-radius: 10px
     padding: 40px 40px 35px
     display: flex
+    width: 100%
     flex-direction: column
     &::before
       position: absolute
@@ -155,8 +170,10 @@
   &__slider
     flex-grow: 2
     width: 100%
+    .slick-list
+      margin: 0 -20px
   &__footer
-    margin-top: 30px
+    // margin-top: 30px
     width: 100%
     position: relative
     justify-content: center
@@ -190,9 +207,17 @@
       height: 14px
       background: url(../images/icons.svg#prev-arrow) no-repeat center
       background-size: contain
-  &[data-step='1'] .form__prev-btn
+  &[data-step='1'] .form__prev-btn,
+  &[data-step='5'] .form__header,
+  &[data-step='5'] .form__footer,
+  &[data-step='6'] .form__summ,
     display: none
   &__summ
+    &.active
+      .form__summ_label
+        border-color: #DFE1F3
+      .form__summ_text::after
+        display: none
     &_text
       position: relative
       display: block
@@ -217,8 +242,7 @@
       box-sizing: border-box
       border-radius: 3px
       padding: 3px 15px 0
-      &.active
-        border-color: #DFE1F3
+    
       span
         display: block
         font-weight: bold
@@ -242,6 +266,12 @@
       box-shadow: none
       height: 40px
   &__step
+    margin: 0 20px
+    padding-bottom: 30px
+    opacity: 0
+    transition: .3s ease-in-out
+    &.slick-active
+      opacity: 1
     &_title
       display: none
   &__flex
@@ -260,6 +290,8 @@
       background: url(../images/icons.svg#soglasie) no-repeat center, #758BFD
       background-size: 18px 13px
       border: none
+  &.error .soglasie__custom
+    border-color: #F23828
   &__custom
     display: block
     flex-shrink: 0
@@ -332,10 +364,25 @@
   line-height: 1
   letter-spacing: 0.08em
   color: #888C9F
+  outline: none
+  &:focus,
+  &:active
+    border-color: #888C9F 
   &::placeholder
     opacity: 1
     color: #888C9F
-
+  &.error
+    border-color: #F23828
+  &.correct
+    border-color: #9BE9A6
+.error-info
+  position: absolute
+  bottom: -17px
+  right: 0
+  font-weight: normal
+  font-size: 12px
+  line-height: 1
+  color: #F23828
 .gender
   padding: 0
   display: flex
@@ -363,7 +410,7 @@
 .loading
   &__title
     display: block
-    margin: 0 0 35px
+    margin: 10px 0 35px
     font-weight: 500
     font-size: 28px
     line-height: 1
@@ -409,9 +456,10 @@
     line-height: 20px
     color: #888C9F
   &__alert
-    display: none
     position: fixed
-    top: 0
+    opacity: 0
+    visibility: hidden
+    top: -100px
     left: 50%
     transform: translateX(-50%)
     width: 100%
@@ -426,6 +474,11 @@
     font-size: 16px
     line-height: 22px
     color: #234E52
+    transition: .2s ease-in-out
+    &.active
+      opacity: 1
+      visibility: visible
+      top: 0
   &__flex
     position: relative
     display: flex

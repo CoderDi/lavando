@@ -518,7 +518,7 @@ body {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  max-width: 110px;
+  max-width: 200px;
   height: 34px;
   display: block;
   margin-right: 10px;
@@ -1345,11 +1345,15 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 0%;
   height: 100%;
   -webkit-border-radius: 130px;
           border-radius: 130px;
   background: #758BFD;
+  -webkit-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
 
 .data__chance_current {
@@ -1357,16 +1361,38 @@ body {
 }
 
 .data__chance_maybe {
-  width: 60%;
   background: rgba(117, 139, 253, 0.4);
 }
 
 .data__steps {
   margin: 40px 0;
+  position: relative;
 }
 
 .data__steps_mobile-line {
-  display: none;
+  position: absolute;
+  z-index: -1;
+  left: 17px;
+  top: 14px;
+  content: '';
+  width: 1px;
+  height: 145px;
+  background: #D3D7E1;
+}
+
+.data__steps_mobile-line i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  max-height: 100%;
+  background: #FFDB5C;
+  -webkit-transition: .2s linear;
+  -o-transition: .2s linear;
+  -moz-transition: .2s linear;
+  transition: .2s linear;
 }
 
 .data__step {
@@ -1376,6 +1402,10 @@ body {
   line-height: 20px;
   color: #888C9F;
   padding: 12px 0 12px 67px;
+  -webkit-transition: .2s linear;
+  -o-transition: .2s linear;
+  -moz-transition: .2s linear;
+  transition: .2s linear;
 }
 
 .data__step.active {
@@ -1391,8 +1421,9 @@ body {
   border: 3px solid #FFDB5C;
 }
 
-.data__step:first-child .data__step_num::before {
-  display: none;
+.data__step.pointed .data__step_num {
+  border-color: #FFDB5C;
+  color: #FFDB5C;
 }
 
 .data__step_num {
@@ -1410,26 +1441,17 @@ body {
   background: url(../images/bg-pattern.png) no-repeat center, #f1f5ff;
   font-size: 0;
   color: transparent;
-}
-
-.data__step_num::before {
-  position: absolute;
-  z-index: -1;
-  left: 48%;
-  top: -28px;
-  content: '';
-  width: 1px;
-  background: #D3D7E1;
-  height: 30px;
+  -webkit-transition: .2s linear;
+  -o-transition: .2s linear;
+  -moz-transition: .2s linear;
+  transition: .2s linear;
 }
 
 .form {
   position: relative;
-  -webkit-box-flex: 2;
-  -webkit-flex-grow: 2;
-     -moz-box-flex: 2;
-      -ms-flex-positive: 2;
-          flex-grow: 2;
+  width: -webkit-calc(100% - 420px);
+  width: -moz-calc(100% - 420px);
+  width: calc(100% - 420px);
 }
 
 .form::after {
@@ -1475,6 +1497,7 @@ body {
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -1517,8 +1540,11 @@ body {
   width: 100%;
 }
 
+.form__slider .slick-list {
+  margin: 0 -20px;
+}
+
 .form__footer {
-  margin-top: 30px;
   width: 100%;
   position: relative;
   -webkit-box-pack: center;
@@ -1571,7 +1597,18 @@ body {
           background-size: contain;
 }
 
-.form[data-step='1'] .form__prev-btn {
+.form[data-step='1'] .form__prev-btn,
+.form[data-step='5'] .form__header,
+.form[data-step='5'] .form__footer,
+.form[data-step='6'] .form__summ {
+  display: none;
+}
+
+.form__summ.active .form__summ_label {
+  border-color: #DFE1F3;
+}
+
+.form__summ.active .form__summ_text::after {
   display: none;
 }
 
@@ -1609,10 +1646,6 @@ body {
   padding: 3px 15px 0;
 }
 
-.form__summ_label.active {
-  border-color: #DFE1F3;
-}
-
 .form__summ_label span {
   display: block;
   font-weight: bold;
@@ -1638,6 +1671,20 @@ body {
   -webkit-box-shadow: none;
           box-shadow: none;
   height: 40px;
+}
+
+.form__step {
+  margin: 0 20px;
+  padding-bottom: 30px;
+  opacity: 0;
+  -webkit-transition: .3s ease-in-out;
+  -o-transition: .3s ease-in-out;
+  -moz-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.form__step.slick-active {
+  opacity: 1;
 }
 
 .form__step_title {
@@ -1684,6 +1731,10 @@ body {
   -webkit-background-size: 18px 13px;
           background-size: 18px 13px;
   border: none;
+}
+
+.soglasie.error .soglasie__custom {
+  border-color: #F23828;
 }
 
 .soglasie__custom {
@@ -1795,6 +1846,11 @@ body {
   line-height: 1;
   letter-spacing: 0.08em;
   color: #888C9F;
+  outline: none;
+}
+
+.input:focus, .input:active {
+  border-color: #888C9F;
 }
 
 .input::-webkit-input-placeholder {
@@ -1825,6 +1881,24 @@ body {
 .input::placeholder {
   opacity: 1;
   color: #888C9F;
+}
+
+.input.error {
+  border-color: #F23828;
+}
+
+.input.correct {
+  border-color: #9BE9A6;
+}
+
+.error-info {
+  position: absolute;
+  bottom: -17px;
+  right: 0;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1;
+  color: #F23828;
 }
 
 .gender {
@@ -1878,7 +1952,7 @@ body {
 
 .loading__title {
   display: block;
-  margin: 0 0 35px;
+  margin: 10px 0 35px;
   font-weight: 500;
   font-size: 28px;
   line-height: 1;
@@ -1948,9 +2022,10 @@ body {
 }
 
 .card__alert {
-  display: none;
   position: fixed;
-  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  top: -100px;
   left: 50%;
   -webkit-transform: translateX(-50%);
      -moz-transform: translateX(-50%);
@@ -1972,6 +2047,16 @@ body {
   font-size: 16px;
   line-height: 22px;
   color: #234E52;
+  -webkit-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  -moz-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.card__alert.active {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
 }
 
 .card__flex {
@@ -2326,6 +2411,7 @@ body {
         -ms-flex-pack: justify;
             justify-content: space-between;
     max-width: 400px;
+    height: 30px;
     margin: 40px auto;
   }
   .data__steps_mobile-line {
@@ -2336,6 +2422,10 @@ body {
     width: 100%;
     height: 1px;
     background: #D3D7E1;
+  }
+  .data__steps_mobile-line i {
+    height: 100%;
+    width: 0;
   }
   .data__chance {
     max-width: 400px;
@@ -2374,6 +2464,7 @@ body {
   }
   .form {
     max-width: 768px;
+    width: 100%;
     margin: 0 auto;
   }
   .result {
@@ -2438,6 +2529,7 @@ body {
     font-size: 24px;
     margin-right: 5px;
     height: 24px;
+    max-width: 110px;
   }
   .banner__slider_label {
     font-size: 24px;
@@ -2687,6 +2779,7 @@ body {
   }
   .form {
     margin: 0 -15px;
+    width: auto;
   }
   .form__container {
     -webkit-border-radius: 0 0 20px 20px;
