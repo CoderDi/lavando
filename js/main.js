@@ -24,7 +24,7 @@ $(document).ready(function(){
   }
 
   var maybeChanceArray = [50, 75, 90, 95, 100], //массив возможной вероятности одобрения по шагам
-      chanceArray = [30, 65, 75, 85, 93]; //массив достигнутой вероятности
+      chanceArray = [50, 65, 75, 85, 93]; //массив достигнутой вероятности
   $(".js-dataChanceMaybe").css("width", maybeChanceArray[0] + "%");
   $(".js-dataChanceCurrent").css("width", chanceArray[0] + "%");
 
@@ -38,6 +38,7 @@ $(document).ready(function(){
     if ($(this).attr("id") == "formSummInput") {
       $(this).parents(".form__summ").addClass("active");
     }
+    $(".card__alert").removeClass("active");
   });
   $("input").blur(function(){
     if (!($(this).val())) {
@@ -91,6 +92,7 @@ $(document).ready(function(){
 
     if ($(".form").attr("data-step") == '6') {
       $(".js-form-slider").slick('slickGoTo', 3);
+      $(".js-loadingProgressLine").css("width", "0");
     } else {
       $(".js-form-slider").slick('slickPrev');
     }
@@ -112,6 +114,9 @@ $(document).ready(function(){
           $(this).addClass("error");
           if (!($(this).parents(".form__step").hasClass("form__step_card"))) {
             $("<span class='error-info'>Заполните данное поле</span>").insertAfter($(this));
+          } else {
+            $(".card__alert").addClass("active");
+            errors = true;
           }
           errors = true;
         } else {
@@ -163,14 +168,21 @@ $(document).ready(function(){
     
   });
   $('.js-form-slider').on('afterChange', function(slick, currentSlide){
-    console.log($(".form").attr("data-step"));
     if ($(".form").attr("data-step") == '5') {
       
       //Это заглушка! Здесь выполняете проверку данных (если она конечно будет:))
       //При успешной проверке нужно выполнить $(".js-form-slider").slick('slickNext');
       //Если нужно вернуться, то $(".js-form-slider").slick('slickPrev');
       $(".js-loadingProgressLine").css("width", "100%");
-      
+      $(function() {	
+        $({numberValue: 0}).animate({numberValue: 280}, {
+          duration: 4500,
+          easing: "linear",
+          step: function(val) {
+            $("#js-loadingProgressText").html(Math.ceil(val)); 
+          }       
+        });      
+      });
       setTimeout(function(){
         $(".js-form-slider").slick('slickNext');
         $("html, body").animate({scrollTop: $("#data").offset().top});
