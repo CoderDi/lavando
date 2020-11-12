@@ -349,6 +349,10 @@ button {
   width: calc(33.333% - 20px);
 }
 
+.xl25 {
+  width: calc(25% - 20px);
+}
+
 @media screen and (max-width: 1200px) {
   .lg100 {
     width: 100%;
@@ -1640,6 +1644,16 @@ button {
   color: #888C9F;
 }
 
+#liveAddress {
+  display: none;
+}
+
+#liveAddress.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .input {
   width: 100%;
   display: block;
@@ -1655,7 +1669,7 @@ button {
   font-size: 15px;
   line-height: 1;
   letter-spacing: 0.08em;
-  color: #888C9F;
+  color: #000;
   outline: none;
 }
 
@@ -1773,9 +1787,11 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #F1F5FF;
+  background: url(../images/loading.png), #F1F5FF;
   border-radius: 50px;
   border: 8px solid #F1F5FF;
+  -webkit-animation: loading 1s linear infinite;
+          animation: loading 1s linear infinite;
 }
 
 .loading__progress_text {
@@ -1792,11 +1808,9 @@ button {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 30%;
-  background: url(../images/loading.png), #FFDB5C;
+  width: 0%;
+  background: #FFDB5C;
   border-radius: 23px;
-  -webkit-animation: loading 1s linear infinite;
-          animation: loading 1s linear infinite;
 }
 
 @-webkit-keyframes loading {
@@ -2280,7 +2294,7 @@ button {
     font-size: 24px;
     margin-right: 5px;
     height: 24px;
-    max-width: 110px;
+    max-width: 120px;
   }
   .banner__slider_label {
     font-size: 24px;
@@ -2522,6 +2536,7 @@ button {
   .form__container {
     border-radius: 0 0 20px 20px;
     padding: 25px 15px 20px;
+    min-height: 0;
   }
   .form__container::before {
     display: none;
@@ -2770,6 +2785,9 @@ button {
   .results__subtitle {
     font-size: 14px;
     line-height: 22px;
+  }
+  .error-info {
+    font-size: 11px;
   }
 }
 /*# sourceMappingURL=main.css.map */

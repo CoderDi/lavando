@@ -348,7 +348,10 @@
       line-height: 1
       letter-spacing: 0.08em
       color: #888C9F
-
+#liveAddress
+  display: none
+  &.active
+    display: flex
 .input
   width: 100%
   display: block
@@ -363,7 +366,7 @@
   font-size: 15px
   line-height: 1
   letter-spacing: 0.08em
-  color: #888C9F
+  color: #000
   outline: none
   &:focus,
   &:active
@@ -429,9 +432,10 @@
     display: flex
     justify-content: center
     align-items: center
-    background: #F1F5FF
+    background: url(../images/loading.png), #F1F5FF
     border-radius: 50px
     border: 8px solid #F1F5FF
+    animation: loading 1s linear infinite
     &_text
       position: relative
       z-index: 2
@@ -444,10 +448,9 @@
       top: 0
       left: 0
       bottom: 0
-      width: 30%
-      background: url(../images/loading.png), #FFDB5C
+      width: 0%
+      background: #FFDB5C
       border-radius: 23px
-      animation: loading 1s linear infinite
 @keyframes loading
   0%
     background-position: 0 0

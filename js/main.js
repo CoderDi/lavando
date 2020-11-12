@@ -23,8 +23,8 @@ $(document).ready(function(){
     });
   }
 
-  var maybeChanceArray = [50, 70, 85, 100], //массив возможной вероятности одобрения по шагам
-      chanceArray = [30, 60, 70, 90]; //массив достигнутой вероятности
+  var maybeChanceArray = [50, 75, 90, 95, 100], //массив возможной вероятности одобрения по шагам
+      chanceArray = [30, 65, 75, 85, 93]; //массив достигнутой вероятности
   $(".js-dataChanceMaybe").css("width", maybeChanceArray[0] + "%");
   $(".js-dataChanceCurrent").css("width", chanceArray[0] + "%");
 
@@ -50,12 +50,12 @@ $(document).ready(function(){
   });
   $("input[name=addressMatch]").change(function(){
     if ($(this).prop("checked")) {
-      $("#liveAddress").hide();
+      $("#liveAddress").removeClass("active");
       $("#liveAddress").find("input").each(function(){
         $(this).addClass("like").removeClass("error correct").nextAll(".error-info").remove();
       });
     } else {
-      $("#liveAddress").show().find("input").removeClass("like");
+      $("#liveAddress").addClass("active").find("input").removeClass("like");
     }
     $(".js-form-slider").slick('setPosition');
   });
@@ -71,29 +71,36 @@ $(document).ready(function(){
     touchMove: false,
     accessibility: false
   });
+
   $(".js-form-prev").on("click", function(){
+    
+    var step = parseInt($(".form").attr("data-step"));
+    $(".js-dataStep:nth-child(" + (step+1) + ")").removeClass("active pointed");
+    $(".js-dataStep:nth-child(" + (step) + ")").addClass("active");
+    if (step < 5) {
+      $(".js-dataChanceMaybe").css("width", maybeChanceArray[step - 2] + "%");
+      $(".js-dataChanceCurrent").css("width", chanceArray[step - 2] + "%");
+      $(".js-chanceValue").text(chanceArray[step - 2] + "%");
+    }
+    
+    if (window.innerWidth > 1170) {
+      $(".js-dataStepLine i").css("height", (step - 2) * 34 + "%");
+    } else {
+      $(".js-dataStepLine i").css("width", (step-2) * 34 + "%");
+    } 
+
     if ($(".form").attr("data-step") == '6') {
       $(".js-form-slider").slick('slickGoTo', 3);
     } else {
       $(".js-form-slider").slick('slickPrev');
     }
-    var step = parseInt($(".form").attr("data-step"));
-    $(".js-dataStep:nth-child(" + (step + 2) + ")").removeClass("active pointed");
-    $(".js-dataStep:nth-child(" + (step + 1) + ")").addClass("active");
-    if (step < 5) {
-      $(".js-dataChanceMaybe").css("width", maybeChanceArray[step - 1] + "%");
-      $(".js-dataChanceCurrent").css("width", chanceArray[step - 1] + "%");
-      $(".js-chanceValue").text(chanceArray[step - 1] + "%");
-    }
-    
-    if (window.innerWidth > 1170) {
-      $(".js-dataStepLine i").css("height", (step - 1) * 34 + "%");
-    } else {
-      $(".js-dataStepLine i").css("width", (step - 1) * 34 + "%");
-    } 
 
     $("html, body").animate({scrollTop: $("#data").offset().top});
   });
+
+
+
+
   $(".js-form-next").on("click", function(){
     var step = parseInt($(".form").attr("data-step"));
     var errors = false;
@@ -133,17 +140,17 @@ $(document).ready(function(){
 
 
     $(".js-form-slider").slick('slickNext');    
-    $(".js-dataStep:nth-child(" + (step + 1) + ")").addClass("active");
-    $(".js-dataStep:nth-child(" + (step) + ")").removeClass("active").addClass("pointed");
+    $(".js-dataStep:nth-child(" + (step + 2) + ")").addClass("active");
+    $(".js-dataStep:nth-child(" + (step + 1) + ")").removeClass("active").addClass("pointed");
     if (step < 5) {
-      $(".js-dataChanceMaybe").css("width", maybeChanceArray[step - 1] + "%");
-      $(".js-dataChanceCurrent").css("width", chanceArray[step - 1] + "%");
-      $(".js-chanceValue").text(chanceArray[step - 1] + "%");
+      $(".js-dataChanceMaybe").css("width", maybeChanceArray[step] + "%");
+      $(".js-dataChanceCurrent").css("width", chanceArray[step] + "%");
+      $(".js-chanceValue").text(chanceArray[step] + "%");
     }
     if (window.innerWidth > 1170) {
-      $(".js-dataStepLine i").css("height", (step - 1) * 34 + "%");
+      $(".js-dataStepLine i").css("height", (step) * 34 + "%");
     } else {
-      $(".js-dataStepLine i").css("width", (step - 1) * 34 + "%");
+      $(".js-dataStepLine i").css("width", (step) * 34 + "%");
     } 
 
     
@@ -156,17 +163,18 @@ $(document).ready(function(){
     
   });
   $('.js-form-slider').on('afterChange', function(slick, currentSlide){
+    console.log($(".form").attr("data-step"));
     if ($(".form").attr("data-step") == '5') {
       
       //Это заглушка! Здесь выполняете проверку данных (если она конечно будет:))
       //При успешной проверке нужно выполнить $(".js-form-slider").slick('slickNext');
       //Если нужно вернуться, то $(".js-form-slider").slick('slickPrev');
-      
+      $(".js-loadingProgressLine").css("width", "100%");
       
       setTimeout(function(){
         $(".js-form-slider").slick('slickNext');
         $("html, body").animate({scrollTop: $("#data").offset().top});
-      }, 3000);
+      }, 5000);
 
 
     }
