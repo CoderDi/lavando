@@ -536,6 +536,8 @@ button {
   margin-right: 10px;
   background: none;
   cursor: default;
+  outline: none;
+  padding: 0;
 }
 
 .banner__swiper {
@@ -1911,8 +1913,8 @@ button {
   border-color: #F23828;
 }
 
-.input.correct {
-  border-color: #9BE9A6;
+.input-capitalize {
+  text-transform: capitalize;
 }
 
 .error-info {

@@ -80,7 +80,7 @@
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Email</span>
-                    <input type="email" class="input" placeholder="ivan_ivanov@mail.ru" required>
+                    <input type="email" id="mail" class="input" onkeyup="limitInput( 'en', this );" placeholder="ivan_ivanov@mail.ru" required>
                   </label>
                 </div>
                 <label class="soglasie">
@@ -95,19 +95,19 @@
                 <div class="form__flex">
                   <label class="label xl50 xs100">
                     <span class="label__title">Фамилия</span>
-                    <input type="text" class="input" placeholder="Иванов" required>
+                    <input type="text" class="input input-capitalize" onkeyup="limitInput( 'ru', this );" placeholder="Иванов" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Имя</span>
-                    <input type="text" class="input" placeholder="Иванович" required>
+                    <input type="text" class="input input-capitalize" onkeyup="limitInput( 'ru', this );" placeholder="Иванович" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Отчество</span>
-                    <input type="text" class="input" placeholder="Иван" required>
+                    <input type="text" class="input input-capitalize" onkeyup="limitInput( 'ru', this );" placeholder="Иван" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Дата рождения</span>
-                    <input type="date" class="input" placeholder="12/04/1985" required>
+                    <input type="text" class="input" inputmode="numeric" name="birthDate" placeholder="12/04/1985" required>
                   </label>
                   <div class="label xl100">
                     <span class="label__title">Пол</span>
@@ -130,11 +130,11 @@
                 <div class="form__flex">
                   <label class="label xl33 sm50">
                     <span class="label__title">Серия</span>
-                    <input type="text" name="passportSerie" class="input" placeholder="1000" required>
+                    <input type="text" name="passportSerie" inputmode="numeric" class="input" placeholder="1000" required>
                   </label>
                   <label class="label xl33 sm50">
                     <span class="label__title">Номер паспорта</span>
-                    <input type="text" name="passportNumber" class="input" placeholder="200000" required>
+                    <input type="text" name="passportNumber" inputmode="numeric" class="input" placeholder="200000" required>
                   </label>
                   <label class="label xl33 sm100">
                     <span class="label__title">Место рождения</span>
@@ -142,11 +142,11 @@
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Дата выдачи паспорта</span>
-                    <input type="date" name="passportDate" class="input" placeholder="12/04/1985" required>
+                    <input type="text" name="passportDate" inputmode="numeric" class="input" placeholder="12/04/1985" required>
                   </label>
                   <label class="label xl50 xs100">
                     <span class="label__title">Код подразделения</span>
-                    <input type="text" name="passportCode" class="input" placeholder="100-200" required>
+                    <input type="text" name="passportCode" inputmode="numeric" class="input" placeholder="100-200" required>
                   </label>
                 </div>
               </div>
@@ -221,7 +221,7 @@
                       <div class="card__front_container">
                         <label class="card__label">
                           <span class="card__label_title">Номер карты <span class="red">*</span></span>
-                          <input type="text" name="cardNumber" class="input card__input" placeholder="0000 0000 0000 0000" required>
+                          <input type="text" name="cardNumber" inputmode="numeric" class="input card__input" placeholder="0000 0000 0000 0000" required>
                         </label>
                         <div class="card__front_flex flex">
                           <div class="card__front_pays flex">
@@ -232,8 +232,8 @@
                           </div>
                           <label for="cardMonth" class="card__label card__label--flex">
                             <span class="card__label_title">Срок действия <span class="red">*</span></span>
-                            <input type="text" name="cardMonth" class="input card__input card__input--date" placeholder="мм" required>
-                            <input type="text" name="cardYear" class="input card__input card__input--date" placeholder="гг" required>
+                            <input type="text" name="cardMonth" inputmode="numeric" class="input card__input card__input--date" placeholder="мм" required>
+                            <input type="text" name="cardYear" inputmode="numeric" class="input card__input card__input--date" placeholder="гг" required>
                           </label>
                         </div>
                       </div>
@@ -242,7 +242,7 @@
                     <div class="card__back">
                       <label class="card__label card__label--cvv">
                         <span class="card__label_title">CVV  <span class="red">*</span></span>
-                        <input type="text" name="cardCvv" class="input card__input" placeholder="***" required>
+                        <input type="text" name="cardCvv" inputmode="numeric" class="input card__input" placeholder="***" required>
                       </label>
                     </div>
                   </div>
